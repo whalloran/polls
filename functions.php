@@ -1,10 +1,9 @@
-
 <?php 
 
 // Database Connection
 require_once "admin/config.php";
 
-// Header
+// Header - Main
 function template_header($title) {
 	echo <<<EOT
 	<!DOCTYPE html>
@@ -15,19 +14,19 @@ function template_header($title) {
 			<link href="style.css?v=1.1" rel="stylesheet" type="text/css">
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-			<link rel="stylesheet" href="https://code.jquery.com/jquery-3.6.0.min.js">
 		</head>
 		<body>
 		<nav class="navtop">
 			<div>
-				<h1>Poll Machine</h1>
+				<h1><a href="../index.php" title="Poll Machine">Poll Machine</a></h1>
 				<a href="index.php"><i class="fas fa-poll"></i>Polls</a>
+				<a href="admin/logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 	EOT;
 }
 
-// Header - Admin Poll Management
+// Header - Admin Pages
 function template_header_admin($title) {
 	echo <<<EOT
 	<!DOCTYPE html>
@@ -44,22 +43,11 @@ function template_header_admin($title) {
 			<div>
 				<h1><a href="../index.php" title="Poll Machine">Poll Machine</a></h1>
 				<a href="../index.php"><i class="fas fa-poll"></i>Polls</a>
+				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 	EOT;
 }
-
-// function login_info() {
-	
-// 	session_start();
-	 
-// 	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-// 		header("location: admin/login.php");
-// 		exit;
-// 	}
-
-// }
-
 
 // Footer
 function template_footer() {

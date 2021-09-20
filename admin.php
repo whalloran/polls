@@ -8,7 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true ){
     exit;
 }
 elseif($_SESSION["username"] !== "admin") {
-    header("location: ./index.php");
+    header("location: index.php");
     exit;
 }
 ?>

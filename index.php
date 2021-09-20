@@ -28,7 +28,7 @@ if ($_SESSION["admin"] !== 0) {
 <div class="content home">
     <div style="width: 1000px; margin: 0 auto;">
         Logged in as: <strong><?php echo $_SESSION["username"] ?></strong>
-		<a href="admin/logout.php" class="logout">Logout</a> 
+		<!-- <a href="admin/logout.php" class="logout">Logout</a>  -->
 	</div>
 <h2>Polls</h2>
     

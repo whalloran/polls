@@ -298,3 +298,12 @@ body {
   width: 360px;
   padding: 20px;
 }
+
+/* RESET PASSWORD PAGE */
+.reset-pass-body {
+  font: 14px sans-serif; 
+}
+.reset-pass-wrapper {
+  width: 360px;
+  padding: 20px;
+}
