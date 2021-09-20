@@ -29,7 +29,7 @@ elseif($_SESSION["username"] !== "admin") {
         Logged in as: <strong><?php echo $_SESSION["username"] ?></strong>
         <a href="admin/logout.php" class="logout">Logout</a> 
     </div>
-	<h2>Admin</h2>
+	<h2>Poll Management</h2>
 	<p>Welcome administrator! Here you can create, delete and view polls.</p>
 	<a href="create.php" class="create-poll">Create Poll</a>
 	<table>
@@ -48,7 +48,7 @@ elseif($_SESSION["username"] !== "admin") {
                 <td><?=$poll['title']?></td>
 				<td><?=$poll['answers']?></td>
                 <td class="actions">
-					<a href="vote.php?id=<?=$poll['id']?>" class="view" title="View Poll"><i class="fas fa-poll fa-s"></i></a>
+					<a href="result.php?id=<?=$poll['id']?>" class="view" title="View Results"><i class="fas fa-poll fa-s"></i></a>
                     <a href="delete.php?id=<?=$poll['id']?>" class="trash" title="Delete Poll"><i class="fas fa-trash fa-s"></i></a>
                 </td>
             </tr>

@@ -6,7 +6,7 @@ session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: admin/login.php");
+    header("Location: admin/login.php");
     exit;
 }
 
@@ -35,10 +35,10 @@ if (isset($_GET['id'])) {
     
     // Check if the poll record exists with the id specified
     if ($poll) {
-        
+        $poll_id = $_GET['id'];
         // MySQL query that selects all the poll answers
         $stmt = $pdo->prepare('SELECT * FROM poll_answers WHERE poll_id = ?');
-        $stmt->execute([$_GET['id']]);
+        $stmt->execute([$poll_id]);
         
         // Fetch all the poll anwsers
         $poll_answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -47,16 +47,17 @@ if (isset($_GET['id'])) {
         if (isset($_POST['poll_answer'])) {
             
             // Check if user has already voted in the poll
-            $vote_check_query = "SELECT * FROM votes WHERE users_id = ?";
+            $vote_check_query = "SELECT * FROM votes WHERE poll_id = $poll_id AND users_id = ?";
             $stmt = $pdo->prepare($vote_check_query);
             $stmt->execute([$_SESSION['id']]);
             $uservotecount = $stmt->rowCount();
 
-            // If user has already voted, notify and redirect to Polls page
+            // If user has already voted, notify and redirect to Results Page
             if ($uservotecount !== 0) {
-              echo "<script>alert('You have already voted.')</script>";
-              
-              // Redirect to Polls Page  
+                //echo "<script>alert('You have already voted in this poll.');</script>";
+                header("Location: result.php?id=$poll_id");                
+                
+             
             } 
             
             // If user has not previously voted in this poll, process the vote
@@ -108,7 +109,7 @@ if (isset($_GET['id'])) {
         <div>
             <input type="submit" value="Vote">
             <a href="result.php?id=<?=$poll['id']?>">View Results</a>
-            <a href="index.php" id="go-back">Go Back</a>
+            <a href="index.php" id="go-back">Polls</a>
         </div>
     </form>
 </div>

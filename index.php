@@ -26,13 +26,14 @@ if ($_SESSION["admin"] !== 0) {
 <?=template_header('Polls')?>
 
 <div class="content home">
-<div style="width: 1000px; margin: 0 auto;">Logged in as: <strong><?php echo $_SESSION["username"] ?></strong>
+    <div style="width: 1000px; margin: 0 auto;">
+        Logged in as: <strong><?php echo $_SESSION["username"] ?></strong>
 		<a href="admin/logout.php" class="logout">Logout</a> 
-		</div>
+	</div>
 <h2>Polls</h2>
     
     <div>
-	<p>Welcome! Let your voice be heard and vote in the polls below.</p>
+	<p style="padding-left: 5px;">Welcome! Let your voice be heard and vote in the polls below.</p>
 	
     <!-- Polls Table -->
     <table>
@@ -49,7 +50,8 @@ if ($_SESSION["admin"] !== 0) {
                         <a href="vote.php?id=<?=$poll['id']?>"><?=$poll['title']?></a>
                     </td>
                     <td class="actions">
-					    <a href="vote.php?id=<?=$poll['id']?>" class="view" title="View Results"><i class="fas fa-poll fa-s view-poll"></i></a>
+					    <a href="vote.php?id=<?=$poll['id']?>" class="vote" title="Vote"><i class="fas fa-check-square fa-s"></i></a>
+                        <a href="result.php?id=<?=$poll['id']?>" class="view" title="View Results"><i class="fas fa-poll fa-s view-poll"></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

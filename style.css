@@ -117,6 +117,7 @@ body {
   text-align: right;
 }
 .home table tbody tr td.actions .view,
+.home table tbody tr td.actions .vote,
 .home table tbody tr td.actions .edit,
 .home table tbody tr td.actions .trash {
   display: inline-flex;
@@ -140,10 +141,21 @@ body {
 }
 .home table tbody tr td.actions .view {
   background-color: #37b770;
+  margin-right: 25px;
+  margin-left: 10px;
+  
 }
 .home table tbody tr td.actions .view:hover {
   background-color: #31a364;
 }
+.home table tbody tr td.actions .vote {
+      background-color: red;
+    }
+    .home table tbody tr td.actions .vote:hover {
+      background-color: red;
+    }
+
+
 .update form {
   padding: 15px 0;
   display: flex;
@@ -209,7 +221,7 @@ body {
   transform: scale(1.1);
 }
 .poll-vote form input[type="submit"],
-.poll-vote form a {
+.poll-vote form a, #go-back {
   display: inline-block;
   padding: 8px;
   border-radius: 5px;
@@ -226,7 +238,7 @@ body {
 .poll-vote form a:hover {
   background-color: #32a367;
 }
-.poll-vote form a {
+.poll-vote form a, #go-back {
   text-align: center;
   text-decoration: none;
   background-color: #37afb7;
