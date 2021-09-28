@@ -24,7 +24,7 @@ if (!empty($_POST)) {
         $stmt->execute([$poll_id, $answer]);
     }
     // Output message
-    $msg = 'Poll created successfully!';
+    $msg = 'Poll created successfully! <a href="index.php">Back to Polls</a>';
 }
 ?>
 

@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
 
 ?>
 
-<?=template_header('Poll Results')?>
+<?=template_header('Poll Results - ' . $poll['title'])?>
 
 <div class="content poll-result">
 	<h2><?=$poll['title']?></h2>

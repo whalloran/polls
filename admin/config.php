@@ -1,9 +1,10 @@
 <?php
-/* Enter Database Credentials. */
-define('DB_SERVER', '');
-define('DB_USERNAME', '');
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', '');
+define('DB_NAME', 'phppoll');
  
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -16,11 +17,10 @@ if($link === false){
 
 function pdo_connect_mysql() {
 
-/* Enter Database Credentials */
-$DATABASE_HOST = '';
-$DATABASE_USER = '';
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
 $DATABASE_PASS = '';
-$DATABASE_NAME = '';
+$DATABASE_NAME = 'phppoll';
 
  try {
     return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);

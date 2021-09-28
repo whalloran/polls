@@ -30,7 +30,7 @@ if ($_SESSION["admin"] !== 0) {
         Logged in as: <strong><?php echo $_SESSION["username"] ?></strong>
 		<!-- <a href="admin/logout.php" class="logout">Logout</a>  -->
 	</div>
-<h2>Polls</h2>
+    <h2>Polls</h2>
     
     <div>
 	<p style="padding-left: 5px;">Welcome! Let your voice be heard and vote in the polls below.</p>
@@ -45,15 +45,19 @@ if ($_SESSION["admin"] !== 0) {
         </thead>
         <tbody>
             <?php foreach ($polls as $poll): ?>
+                <?php $poll_id = $poll['id']; ?>
+             
+            
                 <tr>
                     <td class="poll-titles"> 
                         <a href="vote.php?id=<?=$poll['id']?>"><?=$poll['title']?></a>
                     </td>
                     <td class="actions">
-					    <a href="vote.php?id=<?=$poll['id']?>" class="vote" title="Vote"><i class="fas fa-check-square fa-s"></i></a>
+					    <a href="vote.php?id=<?=$poll['id']?>" id="<?=$poll['id']?>" class="vote" title="Vote"><i class="fas fa-check-square fa-s"></i></a>
                         <a href="result.php?id=<?=$poll['id']?>" class="view" title="View Results"><i class="fas fa-poll fa-s view-poll"></i></a>
                     </td>
                 </tr>
+            
             <?php endforeach; ?>
         </tbody>
     </table>

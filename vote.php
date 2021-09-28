@@ -92,7 +92,7 @@ if (isset($_GET['id'])) {
 
 ?>
 
-<?=template_header('Poll Vote')?>
+<?=template_header('Poll Vote - ' . $poll['title'])?>
 
 <div class="content poll-vote">
     

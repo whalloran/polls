@@ -36,8 +36,8 @@ elseif($_SESSION["username"] !== "admin") {
         <thead>
             <tr>
                 <td>#</td>
-                <td>Title</td>
-				<td>Answers</td>
+                <td class="title-col">Title</td>
+				<td class="description-col">Answers</td>
                 <td></td>
             </tr>
         </thead>
